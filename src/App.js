@@ -7,8 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      {/* <Body></Body> */}
-      <EventPage></EventPage>
+      <Body></Body>
     </div>
   );
 }
