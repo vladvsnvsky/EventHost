@@ -13,6 +13,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CrossmintPayButton } from '@crossmint/client-sdk-react-ui';
 
 
 const cards = [1];
@@ -60,7 +61,7 @@ export default function Album() {
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-          {cards.map((card) => (
+            {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
@@ -83,7 +84,13 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button variant="contained">MINT with your card</Button>
+                    <CrossmintPayButton
+                      clientId="9ccd7fb6-a53d-4beb-8556-e1dcbf4744eb"
+                      environment="staging"
+                      mintConfig={{
+                        "type":"erc-721","totalPrice":".001","_mintAmount":"1"
+                      }}
+                    />
                   </CardActions>
                 </Card>
               </Grid>
@@ -91,7 +98,7 @@ export default function Album() {
           </Grid>
         </Container>
       </main>
-      
+
     </ThemeProvider>
   );
 }
