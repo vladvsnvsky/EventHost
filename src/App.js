@@ -1,7 +1,6 @@
 import './App.css';
 import Header from './components/Header';
 import Body from './components/Body';
-import EventPage from './components/EventPage';
 
 function App() {
   return (
@@ -13,4 +12,3 @@ function App() {
 }
 
 export default App;
-
