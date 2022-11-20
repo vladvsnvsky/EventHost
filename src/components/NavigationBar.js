@@ -18,7 +18,7 @@ const pages = [{"tag":'Explore', "ref":'/events', "disabled":false},
                {"tag":'Blog', "ref":'/blog', "disabled":true}, 
                {"tag":'About', "ref":'/about', "disabled":false}];
 
-const settings = ['Wallet', 'Account', 'Dashboard', 'Disconnect'];
+const settings = ['Wallet', 'Dashboard', 'Disconnect'];
 
 function NavigationBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -40,7 +40,7 @@ function NavigationBar() {
   };
 
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" style={{ background: '#1e1e1e' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -115,15 +115,12 @@ function NavigationBar() {
           >
             EventHost
           </Typography>
-          {/* <Router> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page.tag}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-                // component = {Link}
-                // to = {page.ref}
                 disabled = {page.disabled}
               >
                 {page.tag}
@@ -134,7 +131,7 @@ function NavigationBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <Button variant="contained" style={{background:'#e43f23'}}>Account</Button>
               </IconButton>
             </Tooltip>
             <Menu
@@ -160,7 +157,6 @@ function NavigationBar() {
               ))}
             </Menu>
           </Box>
-          {/* </Router> */}
         </Toolbar>
       </Container>
     </AppBar>
